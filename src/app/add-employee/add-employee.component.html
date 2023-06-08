@@ -12,23 +12,23 @@
                 <label for="emailID" class="col col-form-label">Email</label>
                 <div class="col-sm-10">
                     <input type="email" class="form-control" id="emailID" formControlName="emailId">
-                    <div [style.color]="'red'" *ngIf="addEmployeeForm.controls['emailId']?.dirty && addEmployeeForm.controls['emailId']?.invalid">
-                        <p *ngIf="addEmployeeForm?.controls['emailId']">Email ID is required</p>
-                        <p *ngIf="addEmployeeForm?.controls['emailId']">Please enter a valid Email ID</p>
+                    <div [style.color]="'red'">
+                        <p >Email ID is required</p>
+                        <p >Please enter a valid Email ID</p>
                     </div>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="empName" class="col-sm-2 col-form-label">Name</label>
                 <div class="col-sm-5">
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" formControlName="empName">
                     <div [style.color]="'red'">
                         <p>Employee Name is required</p>
                     </div>
                 </div>
                 <label for="empId" class="col-sm-1 col-form-label">ID</label>
                 <div class="col-sm-4">
-                    <input type="number" class="form-control">
+                    <input type="number" class="form-control" formControlName="empId">
                     <div [style.color]="'red'">
                         <p>Employee ID is required</p>
                     </div>
@@ -37,14 +37,14 @@
             <div class="form-group row">
                 <label for="empLocation" class="col-sm-2 col-form-label">Location</label>
                 <div class="col-sm-5">
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" formControlName="empLocation">
                     <div [style.color]="'red'">
                         <p>Employee Location is required</p>
                     </div>
                 </div>
                 <label for="jobLevel" class="col-sm-1 col-form-label">Level</label>
                 <div class="col-sm-4">
-                    <input type="number" class="form-control">
+                    <input type="number" class="form-control" formControlName="jobLevel">
                     <div [style.color]="'red'">
                         <p>Job Level is required</p>
                         <p>Job Level should be between 3 & 8</p>
@@ -54,11 +54,11 @@
             <div class="form-group row">
                 <label for="Gender" class="col-sm-2 col-form-label">Gender</label>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="gender" id="gender" value="Male" checked>
+                    <input class="form-check-input" type="radio" name="gender" id="gender" value="Male" checked formControlName="gender">
                     <label class="form-check-label" for="male">Male</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="gender" id="gender" value="Female" checked>
+                    <input class="form-check-input" type="radio" name="gender" id="gender" value="Female" checked formControlName="gender">
                     <label class="form-check-label" for="female">Female</label>
                 </div>
                 <div [style.color]="'red'">
@@ -68,7 +68,7 @@
             <div class="form-group row">
                 <label for="yrsOfExp" class="col-sm-4 col-form-label">Years of Experience</label>
                 <div class="col-sm-6">
-                    <input type="number" class="form-control">
+                    <input type="number" class="form-control" formControlName="yearOfExperience">
                     <div [style.color]="'red'">
                         <p>Years of experience is required</p>
                     </div>
@@ -77,7 +77,7 @@
             <div class="form-group row">
                 <label for="noOfProj" class="col-sm-4 col-form-label">No of Projects</label>
                 <div class="col-sm-6">
-                    <input type="number" class="form-control">
+                    <input type="number" class="form-control" formControlName="noOfProjectsWorked">
                     <div [style.color]="'red'">
                         <p>No of projects worked is required</p>
                     </div>
@@ -86,7 +86,7 @@
             <div class="form-group row">
                 <label for="phoneNo" class="col-sm-4 col-form-label">Phone No</label>
                 <div class="col-sm-6">
-                    <input type="number" class="form-control">
+                    <input type="number" class="form-control" formControlName="phoneNo">
                     <div [style.color]="'red'">
                         <p>Phone No is required</p>
                     </div>
@@ -98,7 +98,7 @@
         <p *ngIf="message" [style.color]="'green'">{{message}}</p>
         <p *ngIf="errorMsg" [style.color]="'red'">{{errorMsg}}</p>
         <button type="button" class="btn btn-secondary" (click)="closeModal()" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" (click)="addEmployee()" [disabled]="addEmployeeForm.valid">
+        <button type="button" class="btn btn-primary" (click)="addEmployee()" [disabled]="!addEmployeeForm.valid">
             <span>Add</span>
             <i class="fa fa-plus" aria-hidden="true" [ngStyle]="{fontSize: '21px', marginLeft: '7px'}"></i>
         </button>

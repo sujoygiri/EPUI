@@ -20,6 +20,7 @@ export class AddEmployeeComponent implements OnInit {
   ) { }
 
   addEmployee() {
+    console.log(this.addEmployeeForm.value);
     console.log(this.addEmployeeForm);
     
     this.empService.addEmployee(this.addEmployeeForm.value).subscribe(
@@ -45,7 +46,7 @@ export class AddEmployeeComponent implements OnInit {
 
   customJobLevel(jobLevel: FormControl) {
     // custom validation for job level to be between 3 to 8
-    if (jobLevel.value >= 3 && jobLevel.value <= 8) {
+    if (jobLevel.value < 3 && jobLevel.value > 8) {
       return { 'jobLevel': true };
     }
     return null;
